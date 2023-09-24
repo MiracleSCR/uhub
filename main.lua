@@ -5,13 +5,13 @@ local Window = Rayfield:CreateWindow({
    LoadingTitle = "🔥 Ultimate Hub 🔥",
    LoadingSubtitle = "by Miracle Scripts",
    ConfigurationSaving = {
-      Enabled = true,
+      Enabled = false,
       FolderName = "ultimate", -- Create a custom folder for your hub/game
       FileName = "U. Hub"
    },
    Discord = {
-      Enabled = false,
-      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      Enabled = true,
+      Invite = "YBgSw4cMFr", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
       RememberJoins = true -- Set this to false to make them join the discord every time they load it up
    },
    KeySystem = true, -- Set this to true to use our key system
