@@ -109,4 +109,4 @@ local Input = MainTab:CreateInput({
 
 local TPTab = Window:CreateTab("🎲 Credits", nil) -- Title, Image
 local CSection = TPTab:CreateSection("Credits")
-local Label = Tab:CreateLabel("This Script Been Made by Miracle Scripts!")
+local LBS1 = Tab:CreateLabel("This Script Been Made by Miracle Scripts!")
