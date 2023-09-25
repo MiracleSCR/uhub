@@ -17,7 +17,7 @@ local Window = Rayfield:CreateWindow({
    KeySystem = true, -- Set this to true to use our key system
    KeySettings = {
       Title = "🔑 Key System",
-      Subtitle = "Join Our Discord to Get 🔑",
+      Subtitle = "Join Our Discord to Get Key",
       Note = "Key In Discord Server\nJoin And Get 🔑",
       FileName = "HubKey1", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
       SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
@@ -26,14 +26,14 @@ local Window = Rayfield:CreateWindow({
    }
 })
 
-local MainTab = Window:CreateTab("🏠 Home", nil) -- Title, Image
+local MainTab = Window:CreateTab("🏠 Main", nil) -- Title, Image
 local MainSection = MainTab:CreateSection("Main")
 
 Rayfield:Notify({
-   Title = "🔥 Ultimate Hub 🔥",
-   Content = "Thx For Using Our Script",
+   Title = "🏠 Horrific Housing Script Enabled!",
+   Content = "Thx For Using Miracle Script",
    Duration = 5,
-   Image = nil,
+   Image = "🏠",
    Actions = { -- Notification Buttons
       Ignore = {
          Name = "OK",
@@ -55,7 +55,7 @@ if _G.infinJumpStarted == nil then
 	_G.infinJumpStarted = true
 	
 	--Notifies readiness
-	game.StarterGui:SetCore("SendNotification", {Title="🔥 Ultimate Hub 🔥"; Text="Infinite Jump Activated!"; Duration=5;})
+	game.StarterGui:SetCore("SendNotification", {Title="🏠"; Text="Infinite Jump Activated!"; Duration=5;})
 
 	--The actual infinite jump
 	local plr = game:GetService('Players').LocalPlayer
@@ -86,27 +86,35 @@ local Slider = MainTab:CreateSlider({
    end,
 })
 
-local Slider = MainTab:CreateSlider({
+local Slider2 = MainTab:CreateSlider({
    Name = "JumpPower",
    Range = {1, 200},
    Increment = 1,
    Suffix = nil,
-   CurrentValue = 16,
+   CurrentValue = 50,
    Flag = "sliderjp", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Value)
         game.Players.LocalPlayer.Character.Humanoid.JumpPower = (Value)
    end,
 })
 
-local Input = MainTab:CreateInput({
-   Name = "Walkspeed",
-   PlaceholderText = "1-500",
-   RemoveTextAfterFocusLost = true,
-   Callback = function(Text)
-        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = (Text)
+local Farm = MainTab:CreateButton({
+   Name = "Farm Money",
+   Callback = function()
+   while true do
+	wait(0)
+	local Target = game:GetService("ReplicatedStorage").LoginRewards;
+	Target:FireServer();
+	end
    end,
 })
 
 local TPTab = Window:CreateTab("🎲 Credits", nil) -- Title, Image
 local CSection = TPTab:CreateSection("Credits")
 local LBS1 = TPTab:CreateLabel("This Script Been Made by Miracle Scripts!")
+local Button = TPTab:CreateButton({
+   Name = "Destroy Menu",
+   Callback = function()
+   	Rayfield:Destroy()
+   end,
+})
