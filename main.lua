@@ -30,10 +30,10 @@ local MainTab = Window:CreateTab("🏠 Main", nil) -- Title, Image
 local MainSection = MainTab:CreateSection("Main")
 
 Rayfield:Notify({
-   Title = "🏠 Horrific Housing Script Enabled!",
+   Title = "Horrific Housing Script Enabled!",
    Content = "Thx For Using Miracle Script",
    Duration = 5,
-   Image = "🏠",
+   Image = 14880758768,
    Actions = { -- Notification Buttons
       Ignore = {
          Name = "OK",
