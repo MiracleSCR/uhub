@@ -1,13 +1,13 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
-   Name = "🔥 Ultimate Roblox Hub 🔥",
-   LoadingTitle = "🔥 Ultimate Hub 🔥",
+   Name = "🏠 Horrific Housing | Miracle Scripts 🔥",
+   LoadingTitle = "🏠 Horrific Housing Script 🏠",
    LoadingSubtitle = "by Miracle Scripts",
    ConfigurationSaving = {
-      Enabled = false,
-      FolderName = "ultimate", -- Create a custom folder for your hub/game
-      FileName = "U. Hub"
+      Enabled = true,
+      FolderName = "HH", -- Create a custom folder for your hub/game
+      FileName = "HHSave"
    },
    Discord = {
       Enabled = true,
