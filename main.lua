@@ -101,25 +101,11 @@ local Slider2 = MainTab:CreateSlider({
 local Farm = MainTab:CreateButton({
    Name = "Farm Money",
    Callback = function()
-	_G.farm = not _G.farm
-
-if _G.farmStarted == nil then
-	--Ensures this only runs once to save resources
-	_G.farmStarted = true
-	local plr = game:GetService('Players').LocalPlayer
-	local m = plr:GetMouse()
-	m.KeyDown:connect(function(k)
-		if _G.farm then
-			if k:byte() == 32 then
-			while true do
-				wait(0)
-				local Target = game:GetService("ReplicatedStorage").LoginRewards;
-				Target:FireServer();
-				end
-			end
-		end
-	end)
-end
+	while true do
+		wait(0)
+		local Target = game:GetService("ReplicatedStorage").LoginRewards;
+		Target:FireServer();
+	end
    end,
 })
 
