@@ -15,6 +15,81 @@
 ]]
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
+local KeyWindow = Rayfield:CreateWindow({
+   Name = "🏠 Horrific Housing | Miracle Scripts 🔥",
+   LoadingTitle = "🏠 Horrific Housing Script 🏠",
+   LoadingSubtitle = "by Miracle Scripts",
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = "MSHorrificHousing", -- Create a custom folder for your hub/game
+      FileName = "MSHHSave"
+   },
+   Discord = {
+      Enabled = true,
+      Invite = "YBgSw4cMFr", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = false, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "🔑 Key System",
+      Subtitle = "Join Our Discord to Get Key",
+      Note = "Key In Discord Server\ndiscord.gg/YBgSw4cMFr",
+      FileName = "MSKey", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = "Miracle" -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+local copy = "discord.gg/YBgSw4cMFr"
+setclipboard(tostring(copy))
+Rayfield:Notify({
+   Title = "Key",
+   Content = "Link to a Key Copied To Your Clipboard",
+   Duration = 5,
+   Image = 14880758768,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "OK",
+         Callback = function()
+         print("Okay!")
+      end
+   },
+},
+})
+local KeyTab = Window:CreateTab("🔑 Key", nil) -- Title, Image
+local KeySection = MainTab:CreateSection("Check Key")
+local KeyInput = KeyTab:CreateInput({
+   Name = "Key",
+   PlaceholderText = "Enter Key Here",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(Text)
+   	if Text == "Miracle" then
+		Rayfield:Notify({
+   			Title = "Key is Right",
+   			Content = "Loading Script...",
+   			Duration = 3,
+   			Image = 14880758768
+		},
+		})
+	elseif
+		Rayfield:Notify({
+   			Title = "Key is Incorrect",
+   			Content = "Try again",
+   			Duration = 5,
+   			Image = 14880758768,
+   			Actions = { -- Notification Buttons
+      				Ignore = {
+         				Name = "OK",
+        				Callback = function()
+         				print("Okay!")
+      				end
+   			},
+		},
+		})
+	end
+   end,
+})
+
 local Window = Rayfield:CreateWindow({
    Name = "🏠 Horrific Housing | Miracle Scripts 🔥",
    LoadingTitle = "🏠 Horrific Housing Script 🏠",
