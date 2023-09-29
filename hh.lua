@@ -15,6 +15,9 @@
 ]]
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
+local copy = "discord.gg/YBgSw4cMFr"
+setclipboard(tostring(copy))
+
 local Window = Rayfield:CreateWindow({
    Name = "🏠 Horrific Housing | Miracle Scripts 🔥",
    LoadingTitle = "🏠 Horrific Housing Script 🏠",
@@ -40,8 +43,6 @@ local Window = Rayfield:CreateWindow({
       Key = "Miracle" -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
    }
 })
-local copy = "discord.gg/YBgSw4cMFr"
-setclipboard(tostring(copy))
 
 local MainTab = Window:CreateTab("🏠 Main", nil) -- Title, Image
 local MainSection = MainTab:CreateSection("Main")
