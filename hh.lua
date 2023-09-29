@@ -15,81 +15,6 @@
 ]]
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
-local KeyWindow = Rayfield:CreateWindow({
-   Name = "🏠 Horrific Housing | Miracle Scripts 🔥",
-   LoadingTitle = "🏠 Horrific Housing Script 🏠",
-   LoadingSubtitle = "by Miracle Scripts",
-   ConfigurationSaving = {
-      Enabled = true,
-      FolderName = "MSHorrificHousing", -- Create a custom folder for your hub/game
-      FileName = "MSHHSave"
-   },
-   Discord = {
-      Enabled = true,
-      Invite = "YBgSw4cMFr", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
-      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
-   },
-   KeySystem = false, -- Set this to true to use our key system
-   KeySettings = {
-      Title = "🔑 Key System",
-      Subtitle = "Join Our Discord to Get Key",
-      Note = "Key In Discord Server\ndiscord.gg/YBgSw4cMFr",
-      FileName = "MSKey", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
-      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
-      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-      Key = "Miracle" -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
-   }
-})
-local copy = "discord.gg/YBgSw4cMFr"
-setclipboard(tostring(copy))
-Rayfield:Notify({
-   Title = "Key",
-   Content = "Link to a Key Copied To Your Clipboard",
-   Duration = 5,
-   Image = 14880758768,
-   Actions = { -- Notification Buttons
-      Ignore = {
-         Name = "OK",
-         Callback = function()
-         print("Okay!")
-      end
-   },
-},
-})
-local KeyTab = Window:CreateTab("🔑 Key", nil) -- Title, Image
-local KeySection = MainTab:CreateSection("Check Key")
-local KeyInput = KeyTab:CreateInput({
-   Name = "Key",
-   PlaceholderText = "Enter Key Here",
-   RemoveTextAfterFocusLost = false,
-   Callback = function(Text)
-   	if Text == "Miracle" then
-		Rayfield:Notify({
-   			Title = "Key is Right",
-   			Content = "Loading Script...",
-   			Duration = 3,
-   			Image = 14880758768
-		},
-		})
-	elseif
-		Rayfield:Notify({
-   			Title = "Key is Incorrect",
-   			Content = "Try again",
-   			Duration = 5,
-   			Image = 14880758768,
-   			Actions = { -- Notification Buttons
-      				Ignore = {
-         				Name = "OK",
-        				Callback = function()
-         				print("Okay!")
-      				end
-   			},
-		},
-		})
-	end
-   end,
-})
-
 local Window = Rayfield:CreateWindow({
    Name = "🏠 Horrific Housing | Miracle Scripts 🔥",
    LoadingTitle = "🏠 Horrific Housing Script 🏠",
@@ -100,7 +25,7 @@ local Window = Rayfield:CreateWindow({
       FileName = "MSHHSave"
    },
    Discord = {
-      Enabled = true,
+      Enabled = false,
       Invite = "YBgSw4cMFr", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
       RememberJoins = true -- Set this to false to make them join the discord every time they load it up
    },
@@ -108,53 +33,54 @@ local Window = Rayfield:CreateWindow({
    KeySettings = {
       Title = "🔑 Key System",
       Subtitle = "Join Our Discord to Get Key",
-      Note = "Key In Discord Server\ndiscord.gg/YBgSw4cMFr",
+      Note = "Key In Discord Server\nLink Copied to Your Clipboard",
       FileName = "MSKey", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
       SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
       GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
       Key = "Miracle" -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
    }
 })
+local copy = "discord.gg/YBgSw4cMFr"
+setclipboard(tostring(copy))
 
 local MainTab = Window:CreateTab("🏠 Main", nil) -- Title, Image
 local MainSection = MainTab:CreateSection("Main")
 
 Rayfield:Notify({
    Title = "Horrific Housing Script Enabled!",
-   Content = "Thx For Using Miracle Script",
+   Content = "Thanks For Using Miracle Script",
    Duration = 5,
    Image = 14880758768,
    Actions = { -- Notification Buttons
       Ignore = {
-         Name = "OK",
-         Callback = function()
-         print("Okay!")
-      end
+        Name = "OK",
+        Callback = function()
+		
+     	end
    },
 },
 })
 
- local Button = MainTab:CreateButton({
-   Name = "Infinite Jump",
-   Callback = function()
-_G.infinjump = not _G.infinjump
-if _G.infinJumpStarted == nil then
-	_G.infinJumpStarted = true
-	--The actual infinite jump
-	local plr = game:GetService('Players').LocalPlayer
-	local m = plr:GetMouse()
-	m.KeyDown:connect(function(k)
-		if _G.infinjump then
-			if k:byte() == 32 then
-			humanoid = game:GetService'Players'.LocalPlayer.Character:FindFirstChildOfClass('Humanoid')
-			humanoid:ChangeState('Jumping')
-			wait()
-			humanoid:ChangeState('Seated')
+local Button = MainTab:CreateButton({
+	Name = "Infinite Jump",
+	Callback = function()
+	_G.infinjump = not _G.infinjump
+	if _G.infinJumpStarted == nil then
+		_G.infinJumpStarted = true
+		local plr = game:GetService('Players').LocalPlayer
+		local m = plr:GetMouse()
+		m.KeyDown:connect(function(k)
+			if _G.infinjump then
+				if k:byte() == 32 then
+					humanoid = game:GetService'Players'.LocalPlayer.Character:FindFirstChildOfClass('Humanoid')
+					humanoid:ChangeState('Jumping')
+					wait()
+					humanoid:ChangeState('Seated')
+				end
 			end
-		end
-	end)
-end
-   end,
+		end)
+	end
+end,
 })
 
 local Slider = MainTab:CreateSlider({
