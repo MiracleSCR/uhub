@@ -17,6 +17,9 @@ local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local copy = "discord.gg/YBgSw4cMFr"
 setclipboard(tostring(copy))
+setclipboard(copy)
+toclipboard(tostring(copy))
+toclipboard(copy)
 
 local Window = Rayfield:CreateWindow({
    Name = "🏠 Horrific Housing | Miracle Scripts 🔥",
